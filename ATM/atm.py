@@ -1,7 +1,7 @@
 username = ["admin", "user1", "user2"]
 password = ["123", "123", "123"]
 
-
+# Function to register a new user
 def register():
     # username validation
     print("--Welcome to ATM--")
@@ -30,7 +30,7 @@ def register():
                 print("--Registration successful--")
                 return True
 
-
+# Function to login to the ATM
 def login():
     while True:
         # login validation
@@ -54,7 +54,7 @@ def login():
             print("--Username orn password does not exists--")
 
 
-
+# Main function to run the ATM
 if __name__ == '__main__':
     if register():
         login()
