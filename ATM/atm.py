@@ -3,34 +3,56 @@ password = ["123", "123", "123"]
 
 # Function to register a new user
 def register():
-    print("Welcome to ATM")
-    print("Enter your details to register")
-    name = input("Username: ")
-    if name in username:
-        print("Username already exists")
-        return False
-    else:
-        word = input("Password: ")
-        if len(word) < 6:
-            print("Password must be at least 6 characters")
-            return False
+    # username validation
+    print("--Welcome to ATM--")
+    while True:
+        print("--Enter your details to register--")
+        name = input("Username[register/exit]: ")
+        # check if username is "exit" to exit the program
+        if name == "exit":
+            print("--Thank you for registering--")
+            break
+        if name in username:
+            print("--Username already exists--")
         else:
-            username.append(name)
-            password.append(word)
-            print("Registration successful")
-            return True
+            # password validation
+            word = input("Password[register/exit]: ")
+            if word == "exit":
+                print("--Thank you for registering--")
+                break
+            # check if password is at least 6 characters long
+            if len(word) < 6:
+                print("--Password must be at least 6 characters--")
+                return False
+            else:
+                username.append(name)
+                password.append(word)
+                print("--Registration successful--")
+                return True
 
 # Function to login to the ATM
 def login():
-    print("Enter your details to login")
-    name = input("Username: ")
-    word = input("Password: ")
-    if name in username and word in password:
-        print("Login successful")
-        return True
-    else:
-        print("Invalid username or password")
-        return False
+    while True:
+        # login validation
+        print("--Enter your details to login--")
+        name = input("Username[login/exit]: ")
+        word = input("Password[login/exit]: ")
+        # check if username and password are valid
+        if name == "exit" or word == "exit":
+            print("--Thank you for using ATM--")
+            break
+        # check if username exists in the list
+        if name in username:
+            i = username.index(name)
+            if word == password[i]:
+                print("--Login successful--")
+                break
+            else:
+                print("--Invalid username or password--")
+                return False
+        else:
+            print("--Username orn password does not exists--")
+
 
 # Main function to run the ATM
 if __name__ == '__main__':
