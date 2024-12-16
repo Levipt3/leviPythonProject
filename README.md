@@ -1,2 +1,3 @@
-# leviPythonProject
-My pythonTset
+# LeviPythonProject
+# 锻炼自己编程能力
+# 持续更新中...
